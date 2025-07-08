@@ -8,12 +8,26 @@ import cookieParser from 'cookie-parser'
 const app = express()
 connectDB()
 
-const frontendUrl = process.env.CLIENT_URL
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://instant-aqi-client.vercel.app',
+];
 
 app.use(cors({
-    origin: frontendUrl,
-    credentials: true
-}))
+  origin: (origin, callback) => {
+    // Allow localhost, production, and all Vercel preview URLs
+    if (
+      !origin ||
+      allowedOrigins.includes(origin) ||
+      (origin && origin.endsWith('.vercel.app'))
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
 app.use(express.json())
 app.use(cookieParser())
@@ -23,8 +37,6 @@ app.get('/', (req, res) => {
     res.send('Hello World')
 })
 
-const port = process.env.PORT || 3000
-
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
+app.listen(3000, () => {
+    console.log('Server is running on port 3000')
 })
