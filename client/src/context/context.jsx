@@ -7,7 +7,7 @@ export const AppProvider = (props) => {
 
     axios.defaults.withCredentials = true;
 
- const backendUrl = 'http://localhost:3000'
+ const backendUrl = import.meta.env.VITE_SERVER_URL;
 
  const [isLoggedIn, setIsLoggedIn] = useState(false);
  const [userData, setUserData] = useState(false);

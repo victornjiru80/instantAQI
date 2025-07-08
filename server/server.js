@@ -8,8 +8,10 @@ import cookieParser from 'cookie-parser'
 const app = express()
 connectDB()
 
+const frontendUrl = process.env.CLIENT_URL
+
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: frontendUrl,
     credentials: true
 }))
 
@@ -21,6 +23,8 @@ app.get('/', (req, res) => {
     res.send('Hello World')
 })
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000')
+const port = process.env.PORT || 3000
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`)
 })
