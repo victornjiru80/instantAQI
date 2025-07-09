@@ -6,6 +6,9 @@ import DashboardLayout from './pages/DashboardLayout'
 import Home from './pages/dashboard/Home'
 import Profile from './pages/dashboard/Profile'
 import Settings from './pages/dashboard/Settings'
+import AQI from './pages/dashboard/AQI';
+import Chat from './pages/dashboard/Chat';
+import Invite from './pages/dashboard/Invite';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -19,6 +22,9 @@ const App = () => {
         <Route path='/dashboard/*' element={<DashboardLayout />}>
           <Route index element={<Navigate to="home" replace />} />
           <Route path='home' element={<Home />} />
+          <Route path='aqi' element={<AQI />} />
+          <Route path='chat' element={<Chat />} />
+          <Route path='invite' element={<Invite />} />
           <Route path='profile' element={<Profile />} />
           <Route path='settings' element={<Settings />} />
         </Route>

@@ -104,3 +104,15 @@ export const getUser = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
+
+export const getInviteLink = async (req, res) => {
+    try {
+        // You can use a static token for a reusable link
+        const inviteToken = 'INSTANTAQI_INVITE';
+        const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+        const inviteLink = `${frontendUrl}/register?invite=${inviteToken}`;
+        res.status(200).json({ inviteLink });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}

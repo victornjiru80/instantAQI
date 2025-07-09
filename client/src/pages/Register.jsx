@@ -36,7 +36,7 @@ const Register = () => {
     
   return (
     <div className='flex flex-col items-center justify-center h-screen'>
-        <h1>Register</h1>
+        <h1 className='text-2xl text-blue-400 font-bold text-muted-foreground'>Register</h1>
         <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Name' className='border-2 border-gray-300 rounded-md p-2' />
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' className='border-2 border-gray-300 rounded-md p-2' />

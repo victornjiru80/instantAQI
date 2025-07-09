@@ -35,7 +35,7 @@ const Login = () => {
 
   return (
     <div className='flex flex-col items-center justify-center h-screen'>
-        <h1>Login</h1>
+        <h1 className='text-2xl text-blue-400 font-bold text-muted-foreground'>Login</h1>
         <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
             <input type="text" placeholder='Email' className='border-2 border-gray-300 rounded-md p-2' value={email} onChange={(e) => setEmail(e.target.value)} />
             <input type="password" placeholder='Password' className='border-2 border-gray-300 rounded-md p-2' value={password} onChange={(e) => setPassword(e.target.value)} />

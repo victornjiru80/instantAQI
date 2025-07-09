@@ -73,7 +73,7 @@ const Profile = () => {
             <span className="italic">{location}</span>
             <button
               onClick={handleDetectLocation}
-              className="ml-2 px-2 py-1 text-xs bg-blue-100 hover:bg-blue-200 text-blue-700 rounded transition-colors duration-200"
+              className="ml-2 px-2 py-1 text-xs bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white rounded transition-colors duration-200"
               disabled={locLoading}
             >
               {locLoading ? 'Detecting...' : 'Detect Location'}

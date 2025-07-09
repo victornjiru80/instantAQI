@@ -3,6 +3,16 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/context';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { Home, Gauge, MessageCircle, UserPlus, User, Settings, LogOut } from 'lucide-react';
+
+const navLinks = [
+  { to: '/dashboard/home', label: 'Home', icon: <Home size={20} /> },
+  { to: '/dashboard/aqi', label: 'AQI', icon: <Gauge size={20} /> },
+  { to: '/dashboard/chat', label: 'Chat', icon: <MessageCircle size={20} /> },
+  { to: '/dashboard/invite', label: 'Invite', icon: <UserPlus size={20} /> },
+  { to: '/dashboard/profile', label: 'Profile', icon: <User size={20} /> },
+  { to: '/dashboard/settings', label: 'Settings', icon: <Settings size={20} /> },
+];
 
 const Sidebar = () => {
   const { backendUrl, setIsLoggedIn } = useContext(AppContext);
@@ -23,20 +33,37 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="w-44 h-full bg-white text-gray-800 flex flex-col p-4 border-r border-gray-200 justify-between">
+    <aside className="h-full bg-white text-gray-800 flex flex-col p-2 border-r border-gray-200 justify-between transition-all duration-300
+      w-16 sm:w-44
+      ">
       <div>
-        <h2 className="text-lg font-bold text-muted-foreground mb-8">InstantAQI</h2>
+        <h2 className="text-lg font-bold text-muted-foreground mb-8">
+          <span className="hidden sm:inline">InstantAQI</span>
+          <span className="inline sm:hidden">IA</span>
+        </h2>
         <nav className="flex flex-col gap-4">
-          <NavLink to="/dashboard/home" className={({isActive}) => isActive ? 'font-bold text-blue-500' : ''}>Home</NavLink>
-          <NavLink to="/dashboard/profile" className={({isActive}) => isActive ? 'font-bold text-blue-500' : ''}>Profile</NavLink>
-          <NavLink to="/dashboard/settings" className={({isActive}) => isActive ? 'font-bold text-blue-500' : ''}>Settings</NavLink>
+          {navLinks.map(({ to, label, icon }) => (
+            <NavLink
+              key={to}
+              to={to}
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-2 py-2 rounded-lg transition-colors duration-200 hover:bg-gray-100
+                ${isActive ? 'font-bold text-blue-500 bg-gray-100' : 'text-gray-700'}
+                `
+              }
+            >
+              <span>{icon}</span>
+              <span className="hidden sm:inline">{label}</span>
+            </NavLink>
+          ))}
         </nav>
       </div>
       <button
         onClick={handleLogout}
-        className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200 mb-2 shadow-sm"
+        className="flex items-center gap-3 bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-2 rounded-lg font-medium transition-colors duration-200 mb-2 shadow-sm w-full justify-center sm:justify-start"
       >
-        Logout
+        <LogOut size={20} />
+        <span className="hidden sm:inline">Logout</span>
       </button>
     </aside>
   );
