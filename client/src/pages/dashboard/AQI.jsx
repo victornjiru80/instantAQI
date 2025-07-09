@@ -163,19 +163,7 @@ const AQI = () => {
             {loading ? 'Loading...' : 'Get AQI'}
           </button>
         </form>
-        {/* AQI Levels Section */}
-        <section className="mb-8">
-          <h2 className="text-lg font-semibold mb-3 text-gray-700 border-b pb-1">AQI Levels</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
-            {AQI_LEVELS.map(lvl => (
-              <div key={lvl.level} className={`rounded-lg p-3 text-center text-white ${lvl.color} shadow-sm`}>
-                <div className="font-bold text-base">{lvl.label}</div>
-                <div className="text-xs mt-1">{lvl.desc}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-        {/* AQI Result */}
+        {/* AQI Result (searched city) */}
         {aqiData && aqiData.list && aqiData.list.length > 0 && (
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-8 flex flex-col gap-2 shadow">
             <h2 className="text-lg font-semibold mb-2 text-blue-800 flex items-center gap-2">
@@ -195,6 +183,18 @@ const AQI = () => {
             </div>
           </div>
         )}
+        {/* AQI Levels Section */}
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold mb-3 text-gray-700 border-b pb-1">AQI Levels</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+            {AQI_LEVELS.map(lvl => (
+              <div key={lvl.level} className={`rounded-lg p-3 text-center text-white ${lvl.color} shadow-sm`}>
+                <div className="font-bold text-base">{lvl.label}</div>
+                <div className="text-xs mt-1">{lvl.desc}</div>
+              </div>
+            ))}
+          </div>
+        </section>
         <div className="border-t my-6" />
         {/* Health Recommendations Section */}
         <HealthRecommendations />
