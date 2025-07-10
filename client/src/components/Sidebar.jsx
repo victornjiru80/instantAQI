@@ -33,7 +33,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="h-full bg-white text-gray-800 flex flex-col p-2 border-r border-gray-200 justify-between transition-all duration-300
+    <aside className="h-screen max-h-screen sm:max-h-none bg-white text-gray-800 flex flex-col p-2 border-r border-gray-200 justify-between transition-all duration-300
       w-16 sm:w-44
       ">
       <div>

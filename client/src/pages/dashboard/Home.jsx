@@ -1,4 +1,5 @@
 import React from 'react';
+import AirPollutionExtras from '../../components/AirPollutionExtras';
 
 const articles = [
   {
@@ -59,6 +60,8 @@ const Home = () => {
       <div className="mt-16 text-center text-gray-500 text-sm">
         <span role="img" aria-label="leaf"></span> Breathe easy, live healthy!
       </div>
+      {/* Air Pollution Extras (Map, Facts, Leaderboard) */}
+      <AirPollutionExtras />
     </div>
   );
 };

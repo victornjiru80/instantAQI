@@ -54,34 +54,36 @@ const Profile = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto bg-white rounded-xl shadow p-8 flex flex-col items-center gap-6">
-      <div className="w-24 h-24 rounded-full flex items-center justify-center text-4xl font-bold text-white shadow-lg" style={{ background: avatarBg }}>
-        {avatarLetter}
-      </div>
-      <div className="w-full flex flex-col items-center gap-2">
-        <h2 className="text-2xl font-semibold text-gray-800">{name}</h2>
-        <p className="text-gray-500">{email}</p>
-        <p className="text-gray-400 text-sm">User ID: <span className="font-mono">{id}</span></p>
-        <p className="text-gray-400 text-sm">Joined: {joinDate}</p>
-      </div>
-      <div className="w-full mt-4">
-        <h3 className="text-lg font-semibold text-gray-700 mb-2">More Info</h3>
-        <ul className="text-gray-600 space-y-1">
-          <li><span className="font-medium">Role:</span> <span className="italic">User</span></li>
-          <li className="flex items-center gap-2">
-            <span className="font-medium">Location:</span>
-            <span className="italic">{location}</span>
-            <button
-              onClick={handleDetectLocation}
-              className="ml-2 px-2 py-1 text-xs bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white rounded transition-colors duration-200"
-              disabled={locLoading}
-            >
-              {locLoading ? 'Detecting...' : 'Detect Location'}
-            </button>
-          </li>
-          {locError && <li className="text-red-500 text-xs">{locError}</li>}
-          <li><span className="font-medium">Status:</span> <span className="italic">Active</span></li>
-        </ul>
+    <div className="w-full max-w-[500px] mx-auto px-2 md:max-w-xl md:px-0 overflow-x-hidden">
+      <div className="max-w-xl mx-auto bg-white rounded-xl shadow p-8 flex flex-col items-center gap-6">
+        <div className="w-24 h-24 rounded-full flex items-center justify-center text-4xl font-bold text-white shadow-lg" style={{ background: avatarBg }}>
+          {avatarLetter}
+        </div>
+        <div className="w-full flex flex-col items-center gap-2">
+          <h2 className="text-2xl font-semibold text-gray-800">{name}</h2>
+          <p className="text-gray-500">{email}</p>
+          <p className="text-gray-400 text-sm">User ID: <span className="font-mono">{id}</span></p>
+          <p className="text-gray-400 text-sm">Joined: {joinDate}</p>
+        </div>
+        <div className="w-full mt-4">
+          <h3 className="text-lg font-semibold text-gray-700 mb-2">More Info</h3>
+          <ul className="text-gray-600 space-y-1">
+            <li><span className="font-medium">Role:</span> <span className="italic">User</span></li>
+            <li className="flex items-center gap-2">
+              <span className="font-medium">Location:</span>
+              <span className="italic">{location}</span>
+              <button
+                onClick={handleDetectLocation}
+                className="ml-2 px-2 py-1 text-xs bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white rounded transition-colors duration-200"
+                disabled={locLoading}
+              >
+                {locLoading ? 'Detecting...' : 'Detect Location'}
+              </button>
+            </li>
+            {locError && <li className="text-red-500 text-xs">{locError}</li>}
+            <li><span className="font-medium">Status:</span> <span className="italic">Active</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   );

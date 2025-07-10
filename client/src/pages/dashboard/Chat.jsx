@@ -45,44 +45,46 @@ const Chat = () => {
   };
 
   return (
-    <div className="p-4 max-w-2xl mx-auto flex flex-col h-[80vh]">
-      <h1 className="text-2xl font-bold mb-4">Global Chat</h1>
-      <div className="flex-1 overflow-y-auto bg-gray-50 rounded p-4 mb-4 border">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          messages.map((msg, idx) => (
-            <div key={msg._id || idx} className="mb-2">
-              <span className="font-semibold text-blue-600 mr-2">{msg.user}:</span>
-              <span>{msg.message}</span>
-              <span className="text-xs text-gray-400 ml-2">{new Date(msg.createdAt).toLocaleTimeString()}</span>
-            </div>
-          ))
-        )}
-        <div ref={messagesEndRef} />
+    <div className="w-full max-w-[500px] mx-auto px-2 md:max-w-2xl md:px-0 overflow-x-hidden">
+      <div className="p-4 max-w-2xl mx-auto flex flex-col h-[80vh]">
+        <h1 className="text-2xl font-bold mb-4">Global Chat</h1>
+        <div className="flex-1 overflow-y-auto bg-gray-50 rounded p-4 mb-4 border">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            messages.map((msg, idx) => (
+              <div key={msg._id || idx} className="mb-2">
+                <span className="font-semibold text-blue-600 mr-2">{msg.user}:</span>
+                <span>{msg.message}</span>
+                <span className="text-xs text-gray-400 ml-2">{new Date(msg.createdAt).toLocaleTimeString()}</span>
+              </div>
+            ))
+          )}
+          <div ref={messagesEndRef} />
+        </div>
+        <form onSubmit={handleSend} className="flex gap-2">
+          <input
+            type="text"
+            placeholder="Your name"
+            value={user}
+            onChange={e => setUser(e.target.value)}
+            className="border px-2 py-1 rounded w-32"
+          />
+          <input
+            type="text"
+            placeholder="Type a message..."
+            value={message}
+            onChange={e => setMessage(e.target.value)}
+            className="border px-2 py-1 rounded flex-1"
+          />
+          <button
+            type="submit"
+            className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 active:bg-blue-700"
+          >
+            Send
+          </button>
+        </form>
       </div>
-      <form onSubmit={handleSend} className="flex gap-2">
-        <input
-          type="text"
-          placeholder="Your name"
-          value={user}
-          onChange={e => setUser(e.target.value)}
-          className="border px-2 py-1 rounded w-32"
-        />
-        <input
-          type="text"
-          placeholder="Type a message..."
-          value={message}
-          onChange={e => setMessage(e.target.value)}
-          className="border px-2 py-1 rounded flex-1"
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 active:bg-blue-700"
-        >
-          Send
-        </button>
-      </form>
     </div>
   );
 };
