@@ -11,7 +11,6 @@ connectDB()
 const allowedOrigins = [
   'http://localhost:5173',
   'https://instant-aqi-client.vercel.app',
-  'https://instant-aqi-client-git-main-victor-muriithi-d35b20d0.vercel.app',
 ];
 
 app.use(cors({
