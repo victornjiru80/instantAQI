@@ -109,7 +109,7 @@ export const getInviteLink = async (req, res) => {
     try {
         // You can use a static token for a reusable link
         const inviteToken = 'INSTANTAQI_INVITE';
-        const frontendUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+        const frontendUrl = process.env.CLIENT_URL || 'https://instant-aqi-client.vercel.app';
         const inviteLink = `${frontendUrl}/register?invite=${inviteToken}`;
         res.status(200).json({ inviteLink });
     } catch (error) {
