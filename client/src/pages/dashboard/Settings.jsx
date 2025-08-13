@@ -169,7 +169,7 @@ const Settings = () => {
           <h2 className="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-200">About</h2>
           <div className="bg-gray-50 rounded p-4 text-gray-600 dark:bg-gray-700 dark:text-gray-200">
             <div>App Version: <span className="font-mono">{APP_VERSION}</span></div>
-            <div>Developer: <span className="font-semibold">Your Name</span></div>
+            <div>Developer: <span className="font-semibold">Victor Muriithi Njiru</span></div>
             <div>
               <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">Documentation</a>
             </div>
