@@ -33,6 +33,7 @@ const Register = () => {
         }
     }
     
+
   return (
     <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-slate-50 text-slate-900">
       <aside className="relative flex items-center justify-center bg-sky-50 p-8 sm:p-12">
