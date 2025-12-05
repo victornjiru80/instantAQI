@@ -1,4 +1,4 @@
-...existing code...
+
 
 # Instant AQI — A MERN Stack Application
 
