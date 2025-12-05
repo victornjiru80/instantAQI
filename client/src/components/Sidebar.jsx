@@ -33,9 +33,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="h-screen max-h-screen sm:max-h-none bg-white text-gray-800 flex flex-col p-2 border-r border-gray-200 justify-between transition-all duration-300
-      w-16 sm:w-44
-      ">
+    <aside className="fixed inset-y-0 left-0 z-40 bg-white text-gray-800 flex flex-col p-2 border-r border-gray-200 justify-between transition-all duration-300 w-16 sm:w-44">
       <div>
         <h2 className="text-lg font-bold text-muted-foreground mb-8">
           <span className="hidden sm:inline">InstantAQI</span>

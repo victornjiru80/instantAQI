@@ -24,11 +24,11 @@ const DashboardLayout = () => {
   }
 
   return (
-    <div className="flex h-screen">
+    <div className="min-h-screen bg-gray-100 overflow-x-hidden">
       <Sidebar />
-      <div className="flex-1 flex flex-col">
+      <div className="flex flex-col min-h-screen pl-16 sm:pl-44 lg:pl-0">
         <TopBar />
-        <main className="flex-1 bg-gray-100 p-8 overflow-auto">
+        <main className="flex-1 p-4 sm:p-6 overflow-y-auto overflow-x-hidden">
           <Outlet />
         </main>
       </div>
